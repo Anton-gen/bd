@@ -155,53 +155,88 @@ project_type
 
 )
 
-##ПРАВКА:
+## ПРАВКА:
 
 CREATE TABLE Адрес (
+
     ID INT PRIMARY KEY,
+    
     Адрес VARCHAR(220)
+
 );
 
 CREATE TABLE Структурное_подразделение (
+
     ID INT PRIMARY KEY,
+    
     Наименование_структурного_подразделения VARCHAR(120),
+    
     Адрес INT,
+    
     FOREIGN KEY (Адрес) REFERENCES Адрес(ID)
+
 );
 
 CREATE TABLE Дата_найма (
+
     ID INT PRIMARY KEY,
+    
     Дата DATE
+
 );
 
 CREATE TABLE Оклад (
+
     ID INT PRIMARY KEY,
+    
     Размер_оклада FLOAT
+
 );
 
 CREATE TABLE Должность (
+
     ID INT PRIMARY KEY,
+    
     Наименование_должности VARCHAR(50)
+
 );
 
 CREATE TABLE Проекты (
+
     ID INT PRIMARY KEY,
+    
     Наименование_проекта VARCHAR(220)
+
 );
 
 CREATE TABLE Сотрудники (
+
     ID INT PRIMARY KEY,
+    
     Фамилия VARCHAR(50),
+    
     Имя VARCHAR(50),
+    
     Отчество VARCHAR(50),
+    
     Оклад INT,
+    
     Должность INT,
+    
     Дата_найма INT,
+    
     Структурное_подразделение INT,
+    
     Проект INT,
+    
     FOREIGN KEY (Оклад) REFERENCES Оклад(ID),
+    
     FOREIGN KEY (Должность) REFERENCES Должность(ID),
+    
     FOREIGN KEY (Дата_найма) REFERENCES Дата_найма(ID),
+    
     FOREIGN KEY (Структурное_подразделение) REFERENCES Структурное_подразделение(ID),
+    
     FOREIGN KEY (Проект) REFERENCES Проекты(ID)
+
 );
