@@ -122,7 +122,7 @@ Structura_title
 )
 
 
-date_off_Employee )
+date_off_Employee (
 
 date_off_id primary_key
 
